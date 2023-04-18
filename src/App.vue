@@ -3,7 +3,6 @@ import Board from './components/Board.vue';
 </script>
 
 <template>
-    <Board msg="Good day to all of you" />
-
+    <Board/>
     <!-- <RouterView /> -->
 </template>

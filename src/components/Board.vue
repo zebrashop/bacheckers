@@ -3,11 +3,7 @@ import { useBoard } from "@/composable/useBoard";
 import Field from "./Field.vue";
 
 defineProps({
-    name: 'Board',
-    msg: {
-        type: String,
-        required: true
-    }
+    name: 'Board'
 })
 
 const { board, currentPlayer, isPawnToCapture, movePawn } = useBoard()
