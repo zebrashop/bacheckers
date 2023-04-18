@@ -40,10 +40,6 @@ const optionalNewPosition = computed(() => {
     return state.optionalNewPosition
 });
 
-const optionalCapturePosition = computed(() => {
-    return state.optionalCapturePosition
-});
-
 const isPawnToCapture = computed(() => {
     return state.isPawnToCapture
 });
