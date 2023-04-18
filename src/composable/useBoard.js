@@ -17,7 +17,7 @@ const state = reactive({
     board: start, currentPlayer: 1, optionalNewPosition: [], optionalCapturePosition: [], aboutToMove: null, isPawnToCapture: false
 });
 
-class Piece {
+class Pawn {
     constructor(row, column) {
         this.row = row
         this.column = column
@@ -52,7 +52,7 @@ export function useBoard() {
     function movePawn(value) {
         let row = parseInt(value.substring(0, 1))
         let column = parseInt(value.substring(1, 2))
-        let p = new Piece(row, column)
+        let p = new Pawn(row, column)
 
         if (state.optionalCapturePosition.length > 0) {
             doCapture(p);
@@ -173,9 +173,9 @@ export function useBoard() {
         ) {
             found = true;
             state.aboutToMove = p;
-            newPosition = new Piece(p.row - 2, p.column - 2)
+            newPosition = new Pawn(p.row - 2, p.column - 2)
             state.optionalNewPosition.push(newPosition)
-            capturePosition = new Piece(p.row - 1, p.column - 1)
+            capturePosition = new Pawn(p.row - 1, p.column - 1)
             state.optionalCapturePosition.push({ newPosition: newPosition, capturePosition: capturePosition })
         }
 
@@ -185,9 +185,9 @@ export function useBoard() {
         ) {
             found = true;
             state.aboutToMove = p;
-            newPosition = new Piece(p.row - 2, p.column + 2)
+            newPosition = new Pawn(p.row - 2, p.column + 2)
             state.optionalNewPosition.push(newPosition)
-            capturePosition = new Piece(p.row - 1, p.column + 1)
+            capturePosition = new Pawn(p.row - 1, p.column + 1)
             state.optionalCapturePosition.push({ newPosition: newPosition, capturePosition: capturePosition })
         }
 
@@ -197,9 +197,9 @@ export function useBoard() {
         ) {
             found = true;
             state.aboutToMove = p;
-            newPosition = new Piece(p.row + 2, p.column - 2)
+            newPosition = new Pawn(p.row + 2, p.column - 2)
             state.optionalNewPosition.push(newPosition)
-            capturePosition = new Piece(p.row + 1, p.column - 1)
+            capturePosition = new Pawn(p.row + 1, p.column - 1)
             state.optionalCapturePosition.push({ newPosition: newPosition, capturePosition: capturePosition })
         }
 
@@ -209,9 +209,9 @@ export function useBoard() {
         ) {
             found = true;
             state.aboutToMove = p;
-            newPosition = new Piece(p.row + 2, p.column + 2)
+            newPosition = new Pawn(p.row + 2, p.column + 2)
             state.optionalNewPosition.push(newPosition)
-            capturePosition = new Piece(p.row + 1, p.column + 1)
+            capturePosition = new Pawn(p.row + 1, p.column + 1)
             state.optionalCapturePosition.push({ newPosition: newPosition, capturePosition: capturePosition })
         }
 
@@ -228,12 +228,12 @@ export function useBoard() {
         // check if there is a valid new position for the selected pawn to move to
         if (state.board[p.row + player][p.column + 1] === 0) {
             state.aboutToMove = p;
-            state.optionalNewPosition.push(new Piece(p.row + player, p.column + 1))
+            state.optionalNewPosition.push(new Pawn(p.row + player, p.column + 1))
         }
 
         if (state.board[p.row + player][p.column - 1] === 0) {
             state.aboutToMove = p;
-            state.optionalNewPosition.push(new Piece(p.row + player, p.column - 1))
+            state.optionalNewPosition.push(new Pawn(p.row + player, p.column - 1))
         }
     }
 

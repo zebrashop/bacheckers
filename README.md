@@ -11,6 +11,10 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+Checkout the code as follows. Open up a terminal in a local directory of your choice and issue command
+'git clone https://github.com/zebrashop/bacheckers.git'. This command will create a subdirectory called 'bacheckers'.
+Switch to this subdirectory and continue with the commands below.
+
 ```sh
 npm install
 ```
